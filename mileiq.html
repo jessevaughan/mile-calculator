@@ -1,0 +1,220 @@
+<html>
+<head>
+<title>Function Calculator</title>
+
+<style type="text/css">
+  body {
+    background: #F7F7F7;
+    font-family: "Helvectica", sans-serif;
+  }
+  p {
+    margin: 0;
+  }
+  h2 {
+    margin: 0;
+  }
+  table {
+    width: 100%;
+  }
+  tr {
+    height: 50px;
+  }
+  input {
+    width: 100px;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 5px 10px;
+    border: none;
+    text-align: right;
+    margin-left: 75px;
+  }
+</style>
+
+</head>
+
+<body>
+
+<table width="900" align="center" cellpadding="10" cellspacing="10" style="border-radius: 4px; width: 900px;">
+    <form name="form1" action="">
+
+    <tr align="center">
+    <td width="900" height="112" align="center" border="1">
+        <h1 align="center">Calculate your 2014 mileage deduction</h1>
+        <table width="900">
+          <tr>
+            <td>
+              <div style="width: 500px; float: left; margin-right: 10px;">
+              <div>
+                <table style="background: #EEEEEE; border-radius: 4px; padding: 5px 20px; margin: 0 0 10px 0;">
+                  <tr>
+                    <td align="right" style="padding: 10px 0px;"><span style="font-size: 11px;">Taxable Business Income:</span> <input maxlength="10" id="taxableIncome" type="text" class="number" onkeypress="return isNumberKey(event)" /></td>
+                  </tr>
+                  <tr>
+                    <td align="right" style="padding: 10px 0px;"><span style="font-size: 11px;">Miles you drive for work:</span> <input maxlength="8" id="milesYouDrive" type="text" class="number" onkeypress="return isNumberKey(event)" /></td>
+                  </tr>
+                </table>
+              </div>
+
+              <div>
+                <table style="background: #EEEEEE; border-radius: 4px; padding: 5px 20px; margin: 0 0 10px 0;">
+                  <tr>
+                    <td align="right" style="padding: 10px 0;"><span style="font-size: 11px;">Miles you're forgetting to track:</span> <h2 style="display: inline-block; width: 175px;"><span class="milesForgot">0</span> miles</h2></td>
+                  </tr>
+                </table>
+              </div>
+
+              <div>
+                <table style="background: #EEEEEE; border-radius: 4px; padding: 5px 20px; margin: 0 0 10px 0;">
+                  <tr>
+                    <td align="right" style="padding: 10px 0;"><span style="font-size: 11px;">Time you spend logging miles/week?:</span> <input maxlength="2" id="timeSpent" class="number" type="text" onkeypress="return isNumberKey(event)" /></td>
+                  </tr>
+                  <tr>
+                    <td align="right" style="padding: 10px 0;"><span style="font-size: 11px;">What's your time worth (per hour)?:</span> <input maxlength="4" id="timeWorth" class="number" type="text" onkeypress="return isNumberKey(event)" /></td>
+                  </tr>
+                </table>
+              </div>
+
+              <div>
+                <table style="background: #EEEEEE; border-radius: 4px; padding: 5px 20px; margin: 0 0 10px 0;">
+                  <tr>
+                    <td align="right" style="padding: 10px 0;"><span style="font-size: 11px; display: inline-block; ">What value do you place on peace of mind?<br>(we suggest $<span class="mileageValue"></span>):</span> <input id="peaceValue" maxlength="8" type="text" class="number" onkeypress="return isNumberKey(event)" /></td>
+                  </tr>
+                </table>
+              </div>
+
+              <div>
+                <table style="background: #EEEEEE; border-radius: 4px; padding: 15px 20px 10px 20px;">
+                  <tr>
+                    <td align="right" style="padding-right: 0px;"><p style="font-size: 12px; font-weight: bold;">TOTAL CASH SAVINGS</p><h2>$<span class="cashSavings">0</span></h2></td>
+                  </tr>
+                </table>
+              </div>
+              </div>
+
+              <div style="width: 300px; float: left; background: #EEEEEE; border-radius: 4px; padding: 5px 20px 10px 20px;">
+              <div>
+                <table>
+                  <tr>
+                    <td align="left" style="vertical-align: middle;"><span style="font-size: 11px; width: 140px; display: inline-block;">MileIQ Annual Subscription:</span> <h2 style="display: inline-block;">59.99</h2></td>
+                  </tr>
+                  <tr>
+                    <td align="left" style=""><span style="font-size: 11px; width: 140px; display: inline-block;">Mileage Value:</span> <h2 style="display: inline-block;">$<span class="mileageValue">0</span></h2></td>
+                  </tr>
+                  <tr style="height: 90px;">
+                    <td align="left" style=""><span style="font-size: 11px; width: 140px; display: inline-block;">Miles Forgot Value:</span> <h2 style="display: inline-block;">$<span class="milesForgotValue" id="miFoVa">0</span></h2></td>
+                  </tr>
+                  <tr style="height: 107px;">
+                    <td align="left" style=""><span style="font-size: 11px; width: 140px; display: inline-block;">Time Value:</span> <h2 style="display: inline-block;">$<span class="timeValue">0</span></h2></td>
+                  </tr>
+                  <tr style="height: 90px;">
+                    <td align="left" style=""><span style="font-size: 11px; width: 140px; display: inline-block;">Peace of Mind Value:</span> <h2 style="display: inline-block;">$<span class="peace">0</span></h2></td>
+                  </tr>
+                  <tr style="height: 63px;">
+                    <td align="left" style="padding-top: 15px;"><p style="font-size: 12px; font-weight: bold;">Money you save by using MileIQ this year.</p><h2>$<span class="yearlyValue">0</span></h2></td>
+                  </tr>
+              </div>
+              </div>
+            </td>
+          </tr>
+          <!--
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Taxable income after mileage deduction</p><h2>$<span class="cashSavings2">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Taxable income after mileage deduction NP</p><h2>$<span class="cashSavings2x">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Total Income Tax</p><h2>$<span class="cashSavings3">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Total Income Tax NO</p><h2>$<span class="cashSavings3x">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Self Employment Tax</p><h2>$<span class="cashSavings4">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Self Employment Tax NO</p><h2>$<span class="cashSavings4x">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Total Federal Tax</p><h2>$<span class="cashSavings5">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Total Federal Tax NO</p><h2>$<span class="cashSavings5x">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Total State Tax</p><h2>$<span class="cashSavings6">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Total State Tax NO</p><h2>$<span class="cashSavings6x">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Total Tax With</p><h2>$<span class="cashSavings7">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          <tr>
+            <td align="right" style="padding-right: 50px; padding-top: 15px;"><p>Total Tax WithOUT</p><h2>$<span class="cashSavings7x">0</span></h2></td>
+            <td align="left" style="padding-left: 50px; padding-top: 15px;"></td>
+          </tr>
+          -->
+        </table>
+        </td>
+    </tr>
+
+        <br/>
+
+</form>
+</table>
+
+
+<!--
+<table width="800" align="center" bgcolor="#C0C0C0">
+  <tr>
+    <td>
+                  <input type="text" class="form-control number"  placeholder="Vehicle Price" />
+
+                  <input type="text" class="form-control number" id="estimatedTaxesAndFees" placeholder="Estimated Taxes and Fees" onkeypress="return isNumberKey(event)" />
+          
+                <form id="downPaymentForm">
+                    <label for="downPayment" class="form-control-label dpl">Down Payment</label>
+                    <input type="text" class="form-control number" id="downPayment" placeholder="Down Payment" onkeypress="return isNumberKey(event)" />
+                    <label for="manufacturerRebate" class="form-control-label mrl">Manufacturer Rebate</label>
+                    <input type="text" class="form-control number" id="manufacturerRebate" placeholder="Manufacturer Rebate" onkeypress="return isNumberKey(event)" />
+                    <label for="tradeInValue" class="form-control-label tivl">Trade-In Value</label>
+                    <input type="text" class="form-control number" id="tradeInValue" placeholder="tradeInValue" onkeypress="return isNumberKey(event)" />
+                    <label for="amtOwedOnTrade" class="form-control-label aotl">Amt Owed on Trade</label>
+                    <input type="text" class="form-control number" id="amtOwedOnTrade" placeholder="Amt Owed on Trade" onkeypress="return isNumberKey(event)" />
+                  </form>
+                  <form id="protectionForm">
+                    <label for="extendedWarranty" class="form-control-label ewl">Extended Warranty</label>
+                    <input type="text" class="form-control number" id="extendedWarranty" placeholder="Extended Warranty" onkeypress="return isNumberKey(event)" />
+
+                    <label for="gapInsurance" class="form-control-label gil">Gap Insurance</label>
+                    <input type="text" class="form-control number" id="gapInsurance" placeholder="Gap Insurance" onkeypress="return isNumberKey(event)" />
+                    <label for="serviceContract" class="form-control-label scl">Service Contract</label>
+                    <input type="number" class="form-control number" id="serviceContract" placeholder="Service Contract" onkeypress="return isNumberKey(event)" />
+                </form>
+
+                  
+                  <input type="text" id="total" placeholder="">
+
+                </td>
+  </tr>
+</table>
+-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="scripts.js"></script> -->
+<script type="text/javascript" src="scripts2.js"></script>
+
+</body>
+</html>
